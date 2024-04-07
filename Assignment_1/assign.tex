@@ -1,0 +1,270 @@
+\documentclass[12pt,-letter paper]{article}
+
+%\usepackage[left=1.5in,right=1in,top=1in,bottom=1in]{geometry}
+%\usepackage[left=1.5in,right=1in]{geometry}
+%\usepackage{geometry}
+%\makeatletter%
+%\textheight     243.5mm
+%\textwidth      183.0mm
+%\textwidth=31pc%
+%\textheight=48pc
+\usepackage{lipsum}% this package is included to get dummy paragraphs for sample purpose.
+\usepackage{ulem}
+\usepackage{alltt}
+\usepackage{tfrupee}
+\usepackage[anticlockwise,figuresright]{rotating}
+\usepackage{pstricks}
+\usepackage{wrapfig}
+\usepackage{pstcol,pst-grad}
+ \usepackage{bm}
+\usepackage{enumitem}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+    \usepackage{gensymb}     
+    \usepackage{tabularx}
+\usepackage{ifthen}%
+\usepackage{amsmath}%
+\usepackage{color}%
+\usepackage{float}%
+\usepackage{graphicx}%
+%\usepackage[right]{showlabels}%
+\usepackage{boites}%
+\usepackage{boites_exemples}%
+\usepackage{graphicx,pstricks}
+%\usepackage{enumerate}%
+\usepackage{latexsym}
+\usepackage[fleqn]{mathtools}
+\usepackage{amssymb,amsfonts,amsthm}
+\usepackage{mathrsfs,makeidx,listings,verbatim,moreverb}
+%%\usepackage{amsthm,mathrsfs,makeidx,listings,verbatim,moreverb}
+%\let\eqref\ref%  updated on 20th April 2017
+
+\usepackage{hyperref}%
+%\usepackage[dvips]{hyperref}%
+\hypersetup{bookmarksopen=false}%
+\usepackage{breakurl}%
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\rank}{\text{rank}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right)
+}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+%\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\myaugvec}[2]{\ensuremath{\begin{amatrix}{#1}#2\end{amatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\newcommand\figref{Fig.~\ref}
+\newcommand\appref{Appendix~\ref}
+\newcommand\tabref{Table~\ref}
+\newcommand{\romanNumeral}[1]{\uppercase\expandafter{\romannumeral#1}}
+%\numberwithin{equation}{section}
+%\numberwithin{equation}{subsection}
+%\numberwithin{problem}{section}
+%\numberwithin{definition}{section}
+%\makeatletter
+%\@addtoreset{figure}{problem}
+%\makeatother
+
+%\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+\def\inputGnumericTable{}                                 %%
+%New macro definitions
+\newcounter{matchleft}\newcounter{matchright}
+
+\newenvironment{matchtabular}{%
+  \setcounter{matchleft}{0}%
+  \setcounter{matchright}{0}%
+  \tabularx{\textwidth}{%
+    >{\leavevmode\hbox to 1.5em{\stepcounter{matchleft}\arabic{matchleft}.}}X%
+    >{\leavevmode\hbox to 1.5em{\stepcounter{matchright}\alph{matchright})}}X%
+    }%
+}{\endtabularx}
+
+\title{Mathematics}
+\date{\today}
+\begin{document}
+\graphicspath{{/storage/emulated/0/Assignimages/}}
+\maketitle{QUESTIONS}
+\begin{enumerate}
+	\item The roots of the equation constant, are $x^2+x-p\brak{p+1}=0$, where p is a constant,are
+    \begin{enumerate}
+        \item $p,\brak{p+1}$
+        \item $-p,\brak{p+1}$
+        \item $p,-\brak{p+1}$
+        \item $-p,-\brak{p+1}$
+    \end{enumerate}
+    \item In an AP, if d=2, n=5 and $a_n=0$, then value of a is
+    \begin{enumerate}
+        \item 10
+        \item 5
+        \item -8
+        \item 8
+    \end{enumerate}
+    
+    \item In Fig. 1, 0 is the centre of a circle, AB is a chord and AT is the tangent at A. If $\angle AOB$ = $100^\circ$, then $\angle BAT$ is equal to \\
+      \newcommand{\figone}{\includegraphics[width=5cm]{1.jpg}}
+\begin{minipage}{0.15\textwidth} % Adjust width for text
+  \begin{enumerate}
+    \item $100^\circ$
+    \item $40^\circ$
+    \item $50^\circ$
+    \item $90^\circ$
+  \end{enumerate}
+\end{minipage}
+\hspace{3cm} % Add horizontal space
+\figone 
+    \item In Fig.2, PA and PB are tangents to the circle with centre O. If $\angle APB=100^\circ$, then $\angle OAB$ is\\
+       \newcommand{\figtwo}{\includegraphics[width=5cm]{2.jpg}}
+\begin{minipage}{0.15\textwidth} % Adjust width for text
+  \begin{enumerate}
+    \item $30^\circ$
+    \item $60^\circ$
+    \item $90^\circ$
+    \item $15^\circ$
+  \end{enumerate}
+\end{minipage}
+\hspace{3cm} % Add horizontal space
+\figtwo 
+    \item The radii of two circles are 4cm and 3cm respectively. The diameter of the circle having area equal to the sum of the area of the two circles $\brak{in cm}$ is
+    \begin{enumerate}
+        \item 5
+        \item 7 
+        \item 10
+        \item 14
+    \end{enumerate}
+    \item A sphere of diameter 18 cm is dropped into a cylindrical vessel of diameter 36 cm, partly filled with water. If the sphere is completely submerged, then the water level rises $\brak{in cm}$ by
+    \begin{enumerate}
+        \item 3
+        \item 4 
+        \item 5
+        \item 6
+    \end{enumerate}
+    \item The angle of elevation of the top of a tower from a point on the ground, which is 30 m away from the foot of the tower is 45°. The height of the tower $\brak{in metres}$ is
+    \begin{enumerate}
+        \item 15
+        \item 30 
+        \item $30\sqrt{3}$
+        \item $10\sqrt{3}$
+    \end{enumerate}
+    \item The point P which divides the line segment joining the points A$\brak{2, -5}$ and B$\brak{5, 2}$ in the ratio 2:3 lies in the quadrant
+    \begin{enumerate}
+        \item I
+        \item II 
+        \item III
+        \item IV
+    \end{enumerate}
+    \item The mid-point of segment AB is the point P$\brak{0,4}$. If the coordinates of B are $\brak{-2, 3}$ then the coordinates of A are
+    \begin{enumerate}
+        \item $\brak{2,5}$
+        \item $\brak{-2,-5}$
+        \item $\brak{2,9}$
+        \item $\brak{-2,11}$
+    \end{enumerate}
+    \item Which of the following cannot be the probability of an event?
+    \begin{enumerate}
+        \item 1.5
+        \item $\dfrac{3}{5}$
+        \item $25\%$
+        \item 0.3
+    \end{enumerate}\newpage
+    
+    \item Find the value of $p$ so that the quadratic equation $px\brak{x-3}+9=0$ has two equal roots.
+    \item Find whether -150 is a term of the AP 17, 12, 7, 2,....?
+    \item 	Two concentric circles are of radii 7 cm and r cm respectively, where r >7. A chord of the larger circle, of length 48 cm, touches the smaller circle. Find the value of r.
+    \item 	Draw a line segment of length 6 cm. Using compasses and ruler, find a point P on it which divides it in the ratio $3:4$.
+    \item In Fig. 3, APB and CQD are semi-circles of diameter 7 cm each, while ARC and BSD are semi-circles of diameter 14 cm each. Find the perimeter of the shaded region.[Use $\pi=\dfrac{22}{7}$]
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=5cm]{3.jpg}
+    \end{figure}
+    \item Two cubes, each of side 4 cm are joined end to end. Find the surface area of the resulting cuboid.
+    \item Find that value(s) of x for which the distance between the points $P\brak{x,4}$ and $Q\brak{9,10}$ is $10$units.
+    \item A coin is tossed two times. Find the probability of getting at least one head.\newpage
+ 
+    \item Find the roots of the following quadratic equation:\newline $2\sqrt{3}x^2-5x+\sqrt{3}=0$
+    \item Find the value of the middle term of the following AP :\newline
+   $- 6, -2, 2,........, 58.$
+  
+   \item Determine the AP whose fourth term is 18 and the difference of the ninth term from the fifteenth term is 30
+   \item In Fig. 4, a triangle ABC is drawn to circumscribe a circle of radius 2cm such that the segments BD and DC into which BC is divided by the point of contact D are of lengths 4cm and 3cm respectively. If area of $\triangle ABC=21cm^2$, then find the lengths of sides AB and AC.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=4cm]{4.jpg}
+    \end{figure}
+    
+    \item Draw a triangle ABC in which AB=5 cm, BC=6 cm and $\angle ABC=60^\circ$. Then construct a triangle whose sides are $\dfrac{5}{7}$ times the corresponding sides of $\triangle ABC$.
+    
+    \item Find the area of the major segment $APB$, in Fig 5, of a circle of radius $35cm$ and $\angle AOB=90^\circ$.[Use $\pi=\dfrac{22}{7}$]
+     \begin{figure}[h]
+        \centering
+        \includegraphics[width=5cm]{5.jpg}
+    \end{figure}
+    
+    \item The radii of the circular ends of a bucket of height $15cm$ are $14cm$ and $r cm \brak{r<14cm}$. If the volume of bucket is $5390cm^3$, then find the value of r.[Use $\pi=\dfrac{22}{7}$]
+
+    \item Two dice are rolled once. Find the probability of getting such numbers on two dice, whose product is a perfect square.
+    \item A game consists of tossing a coin 3 times and noting its outcome each time. Hanif wins if he gets three heads or three tails, and loses otherwise. Calculate the probability that Hanif will lose the game.
+
+    \item From the top of a tower $100m$ high, a man observes two cars on the
+opposite sides of the tower with angles of depression $30^\circ$ and $45^\circ$ respectively. Find the distance between the cars. [Use $\sqrt{3}=1.73$]
+
+    \item If $\brak{3,3},\brak{6,y},\brak{x,7}$ and $\brak{5,6}$ are the vertices of a parallelogram taken in order, find the values of $x$ and $y$.
+    
+    \item If two vertices of an equilateral triangle are $\brak{3,0}$ and $\brak{6,0}$, find the third vertex.
+    
+    \item Find the value of $k$, if the points $P\brak{5,4},Q\brak{7,k}$ and $R\brak{9,-2}$ are collinear.\newpage
+    
+ 
+    \item A motor boat whose speed is $20km/h$ in still water, takes 1 hour more to go 48 km upstream than to return downstream to the same spot. Find the speed of the stream.
+     
+   \item Find the roots of the equation $\dfrac{1}{x+4}-\dfrac{1}{x-7}=\dfrac{11}{30}, x\neq -4,7$
+   \item From a solid cylinder whose height is 15 cm and diameter 16 cm, a conical cavity of the same height and same diameter is hollowed out. Find the total surface area of the remaining solid. [Take $n=3.14$]
+   \item Two poles of equal heights are standing opposite to each other on either side of the road, which is $100m$ wide. From a point between them on the road, the angles of elevation of the top of the poles are $60^\circ$ and $30^\circ$, respectively. Find the height of the poles.
+\end{enumerate}
+\end{document}
+\end{document}
