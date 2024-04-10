@@ -1,0 +1,575 @@
+\documentclass[12pt,-letter paper]{article}
+
+%\usepackage[left=1.5in,right=1in,top=1in,bottom=1in]{geometry}
+%\usepackage[left=1.5in,right=1in]{geometry}
+%\usepackage{geometry}
+%\makeatletter%
+%\textheight     243.5mm
+%\textwidth      183.0mm
+%\textwidth=31pc%
+%\textheight=48pc
+\usepackage{lipsum}% this package is included to get dummy paragraphs for sample purpose.
+\usepackage{ulem}
+\usepackage{alltt}
+\usepackage{tfrupee}
+\usepackage[anticlockwise,figuresright]{rotating}
+\usepackage{pstricks}
+\usepackage{wrapfig}
+\usepackage{pstcol,pst-grad}
+ \usepackage{bm}
+ \usepackage[inline]{enumitem}
+\usepackage{enumitem}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+    \usepackage{gensymb}     
+    \usepackage{tabularx}
+\usepackage{ifthen}%
+\usepackage{amsmath}%
+\usepackage{color}%
+\usepackage{float}%
+\usepackage{graphicx}%
+%\usepackage[right]{showlabels}%
+\usepackage{boites}%
+\usepackage{boites_exemples}%
+\usepackage{graphicx,pstricks}
+%\usepackage{enumerate}%
+\usepackage{latexsym}
+\usepackage[fleqn]{mathtools}
+\usepackage{amssymb,amsfonts,amsthm}
+\usepackage{mathrsfs,makeidx,listings,verbatim,moreverb}
+%%\usepackage{amsthm,mathrsfs,makeidx,listings,verbatim,moreverb}
+%\let\eqref\ref%  updated on 20th April 2017
+\usepackage[labelformat=empty]{caption}
+\usepackage{hyperref}%
+%\usepackage[dvips]{hyperref}%
+\hypersetup{bookmarksopen=false}%
+\usepackage{breakurl}%
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\rank}{\text{rank}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right)
+}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+%\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\myaugvec}[2]{\ensuremath{\begin{amatrix}{#1}#2\end{amatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\newcommand\figref{Fig.~\ref}
+\newcommand\appref{Appendix~\ref}
+\newcommand\tabref{Table~\ref}
+\newcommand{\romanNumeral}[1]{\uppercase\expandafter{\romannumeral#1}}
+%\numberwithin{equation}{section}
+%\numberwithin{equation}{subsection}
+%\numberwithin{problem}{section}
+%\numberwithin{definition}{section}
+%\makeatletter
+%\@addtoreset{figure}{problem}
+%\makeatother
+
+%\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+\def\inputGnumericTable{}                                 %%
+%New macro definitions
+\newcounter{matchleft}\newcounter{matchright}
+
+\newenvironment{matchtabular}{%
+  \setcounter{matchleft}{0}%
+  \setcounter{matchright}{0}%
+  \tabularx{\textwidth}{%
+    >{\leavevmode\hbox to 1.5em{\stepcounter{matchleft}\arabic{matchleft}.}}X%
+    >{\leavevmode\hbox to 1.5em{\stepcounter{matchright}\alph{matchright})}}X%
+    }%
+}{\endtabularx}
+
+\title{Mathematics}
+\date{\today}
+\begin{document}
+\graphicspath{{/storage/emulated/0/Pictures/Telegram/}}
+\begin{enumerate}
+\subsection*{Questions 1-25 carry 1 mark each}
+    \item Consider a system of linear equations:  \[x-2y+3z=-1\] \[x-3y+4z=1\] \[-2x+4y-6z=k\]
+The value of k for which the system has infinitely many solutions is \underline{\hspace{1cm}}.
+    \item A function \(f(x)=1-x^2+x^3\)is defined in the closed interval $[-1,1]$. The value of x , in the open interval $(-1,1)$ for which the mean value theorem is satisfied, is\\
+    \begin{enumerate*}
+        \item $-\dfrac{1}{2}$ \hspace{1cm}
+        \item $-\dfrac{1}{3}$ \hspace{1cm}
+        \item $\dfrac{1}{3}$  \hspace{1cm}
+        \item $\dfrac{1}{2}$
+    \end{enumerate*}
+\\
+    \item Suppose $A$ and $B$ are two independent events with probabilities $P(A)\neq 0$ and $P(B) \neq 0$. Let $\overline{A}$ and $\overline{B}$ be their complements. Which one of the following statements is FALSE?\\
+     \begin{enumerate*}
+        \item $P(A\cap B)=P(A)P(B)$ \hspace{1.2cm}
+        \item $P(A\cup B)=P(A)+P(B)$ 
+        \item $P(A|B)=P(A)$  \hspace{3cm}
+        \item $P(\overline{A}\cap \overline{B})=P(\overline{A})P(\overline{B})$
+    \end{enumerate*}
+
+    \item Let $z=x+iy$ be a complex variable. Consider that contour integration is performed along the unit circle in anticlockwise direction. Which one of the following statements is \textbf{NOT TRUE}?
+       \begin{enumerate}
+           \item The residue of $\dfrac{z}{z^2-1}$ at $z=1$ is$\dfrac{1}{2}$
+           \item \(\oint_C z^2\,dz =0\)\\
+           \item \(\frac{1}{2\pi i}\oint_C \frac{1}{z}\,dz\)\\
+           \item $\overline{z} \brak{complex conjugate of z}$is an analytical function
+       \end{enumerate}
+    \item The value of $p$ such that the vector 
+    $\begin{bmatrix}
+       1\\
+       2\\
+       3
+    \end{bmatrix}$ is an eigenvector of the matrix
+    $\begin{bmatrix}
+        4 & 1 & 2\\
+        p & 2 & 1\\
+        14 & -4 & 10
+    \end{bmatrix}$ is \underline{\hspace{1cm}}.
+    \item In the circuit shown, at resonance, the amplitude of the sinusoidal voltage (in Volts) across the capacitor is \underline{\hspace{1cm}}.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=5cm,height= 3cm]{6.jpg}        
+    \end{figure}
+    
+    \item In the network shown in the figure, all resistors are identical with $R=300\Omega$. The resistance $R_ab \brak{in\Omega}$ of the network is \underline{\hspace{1cm}}.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=13cm,height=5cm]{7.jpg}
+    \end{figure}
+  
+    \newpage\item In the given circuit, the values of $V_1$ and $V_2$ respectively are \\ \\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=6cm,height=3cm]{8.jpg}
+    \end{figure}
+     \begin{enumerate*}
+        \item $5V, 25V$ \hspace{1cm}
+        \item $10V, 30V$ \hspace{1cm}
+        \item $15V, 35V$  \hspace{1cm}
+        \item $0V, 20V$
+     \end{enumerate*}
+    \item A region of negative differential resistance is observed in the current voltage characteristics of a silicon PN junction if
+    \begin{enumerate}
+        \item both the P-region and the N-region are heavily doped
+        \item the N-region is heavily doped compared to the P-region
+        \item the P-region is heavily doped compared to the N-region
+        \item an intrinsic silicon region is inserted between the P-region and the N-region
+    \end{enumerate}
+    \item A silicon sample is uniformly doped with donor type impurities with a concentration of $10^16/cm^3$.The electron and hole mobilities in the sample are $1200cm^2/V-s$ and $400cm^2/V-s$ respectively. Assume complete ionization of impurities. The charge of an electron is $1.6×10^-19 C$. The resistivity of the sample $\brak{in \Omega-cm}$ is \underline{\hspace{2cm}}.    
+   \newpage \item For the circuit with ideal diodes shown in the figure, the shape of the output $\brak{v_{out}}$ for the given sine wave input $\brak{v_{in}}$ will be
+     \begin{figure}[h]
+        \centering
+        \includegraphics[width=12.5cm,height=5cm]{9.jpg}
+     \end{figure}
+ \begin{figure}[h]
+  \centering
+  \begin{tabular}{cc}
+    \textbf{a)} \includegraphics[width=120pt, height=72pt]{10.jpg} & \hspace{3cm}  % Image 1 with spacing and label
+    \textbf{b)} \includegraphics[width=120pt, height=72pt]{11.jpg} \\        % Image 2 on a new line and label
+    \textbf{c)} \includegraphics[width=120pt, height=72pt]{12.jpg} & \hspace{3cm}  % Image 3 with spacing and label
+    \textbf{d)} \includegraphics[width=120pt, height=72pt]{13.jpg}
+  \end{tabular}
+ \end{figure}
+
+\item In the circuit shown below, the Zener diode is ideal and the Zener voltage is $6V$. The output voltage $V_o$$\brak{\text{in volts}}$ is \underline{\hspace{1cm}}.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=6cm,height=4cm]{14.jpg}
+    \end{figure}
+\item In the circuit shown, the switch SW is thrown from position A to position B at time $t=0$. The energy \brak{in \mu J} taken from the $3V$source to charge the $0.1 \mu F$ capacitor from $0V$ to $3V$ is
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=5cm,height=3cm]{15.jpg}
+    \end{figure}\\
+    \begin{enumerate*}
+        \item $0.3$ \hspace{1cm}
+        \item $0.45$ \hspace{1cm}
+        \item $0.9$ \hspace{1cm}
+        \item $3$ 
+    \end{enumerate*}
+\item In an 8085 microprocessor, the shift registers which store the result of an addition and the overflow bit are, respectively 
+    \begin{enumerate}
+        \item B and F
+        \item A and F
+        \item H and F
+        \item A and C
+    \end{enumerate}
+
+\item A $16Kb$ \brak{\text{=16,384 bit}} memory array is designed as a square with an aspect ratio of one \brak{\text{number of rows is equal to the number of columns}}. The minimum number of address lines needed for the row decoder is \underline{\hspace{1cm}}.
+\item Consider a four bit D to A converter. The analog value corresponding to digital signals of values 0000 and 0001 are $0V$ and 0.$0625V$ respectively. The analog value \brak{\text{in Volts}} corresponding to the digital signal 1111 is \underline{\hspace{1cm}}.
+\item The result of the convolution $x\brak{-t} * \delta \brak{-t-t_0}$ is\\
+\\ \begin{enumerate*}
+    \item $x\brak{t+t_0}$ \hspace{1cm}
+    \item $x\brak{t-t_0}$ \hspace{1cm}
+    \item $x\brak{-t+t_0}$ \hspace{1cm}
+    \item $x\brak{-t-t_0}$ 
+\end{enumerate*}
+\item The waveform of a periodic signal $x\brak{t}$ is shown in the figure
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=6cm,height=3cm]{16.jpg}
+    \end{figure}
+    A signal $g\brak{t}$ is defined by $g\brak{t}=x\brak{\dfrac{x-1}{2}}$.The average power of $g\brak{t}$ is \underline{\hspace{1cm}}.
+    \item Negative feedback in a closed-loop control system \textbf{DOES NOT}\\
+    \begin{enumerate}
+        \item reduce the overall gain 
+        \item reduce bandwidth
+        \item improve disturbance rejection 
+        \item reduce sensitivity to parameter variation
+    \end{enumerate}
+    \item A unity negative feedback system has the open-loop transfer function $G\brak{t}=\dfrac{K}{s\brak{s+1}\brak{s+3}}$. The value of the gain $K\brak{>0}$ at which the root locus crosses the imaginary axis is \underline{\hspace{1cm}}.
+    \item The polar plot of the transfer function \[G\brak{s}=\dfrac{10\brak{s+1}}{s\brak{s+10}} \hspace{0.5cm}\text{for}\hspace{0.5cm}0\leq \omega<\infty\]
+     will be in the
+     \begin{enumerate}
+         \item first quadrant
+         \item second quadrant
+         \item third quadrant
+         \item fourth quadrant
+     \end{enumerate}
+     \item A sinusoidal signal of $2 kHz$ frequency is applied to a delta modulator. The sampling rate and step-size $\Delta$ of the delta modulator are $20,000$ samples per second and $0.1 V$, respectively. To prevent slope overload, the maximum amplitude of the sinusoidal signal \brak{\text{in Volts}} is\\
+    \\ \begin{enumerate*}
+        \item $\dfrac{1}{2\pi}$ \hspace{1cm}
+        \item $\dfrac{1}{\pi}$ \hspace{1cm}
+        \item $\dfrac{2}{\pi}$  \hspace{1cm}
+        \item $\pi$
+     \end{enumerate*}
+     \item Consider the signal $s\brak{t}=m\brak{t}cos\brak{2\pi f_ct}+\hat{m}\brak{t}sin\brak{2\pi f_ct}$ where $\hat{m}\brak{t}$ denotes the Hilbert transform of m\brak{t} and the bandwidth of m\brak{t} is very small compared to $f_c$ . The signal s\brak{t} is a
+     \begin{enumerate}
+         \item high-pass signal
+         \item low-pass signal
+         \item band-pass signal
+         \item double sideband suppressed carrier signal
+     \end{enumerate}
+     \item Consider a straight, infinitely long, current carrying conductor lying on the z-axis. Which one of the following plots \brak{\text{in linear scale}} qualitatively represents the dependence of $H_\phi$ on $r$, where $H_\phi$ is the magnitude of the azimuthal component of magnetic field outside the conductor and $r$ is the radial distance from the conductor?\\
+      \begin{figure}[H]
+  \centering
+  \begin{tabular}{cc}
+    \textbf{a)} \includegraphics[width=5cm, height=4cm]{17.jpg} \hspace{1cm} % Image 1 with spacing and label
+    \textbf{b)} \includegraphics[width=5cm, height=4cm]{18.jpg}   \\     % Image 2 on a new line and label
+\\ \textbf{c)} \includegraphics[width=5cm, height=4cm]{19.jpg} \hspace{1cm} % Image 3 with spacing and label
+    \textbf{d)} \includegraphics[width=5cm, height=4cm]{20.jpg}
+  \end{tabular}
+ \end{figure}
+ \item The electric field component of a plane wave traveling in a lossless dielectric medium is given by $\overrightarrow{E}\brak{z,t}=\hat{a_y}2cos\brak{10^8t-\dfrac{z}{sqrt2}}$$V/m$.The wavelength \brak{\text{in m}} for the wave is \underline{\hspace{1cm}}.
+ \subsection*{Questions 26-55 carry 2 marks each}
+ \item The solution of the differential equation $\dfrac{d^2y}{dy^2}+2\dfrac{dy}{dt}+y=0$ with $y\brak{0}=y'\brak{0}=1$ is\\ \\
+\begin{minipage}[t]{.5\textwidth}
+\begin{itemize}
+    \item[(a)] $\brak{2-t}e^t$ 
+    \item[(c)] $\brak{2+t}e^{-t}$
+\end{itemize}
+\end{minipage}
+\hfill % Add space between minipages
+\begin{minipage}[t]{.5\textwidth}
+\begin{itemize}
+\item[(b)] $\brak{1+2t}e^{-t}$ 
+\item[(d)] $\brak{1-2t}e^t$
+\end{itemize}
+\end{minipage}
+ \item A vector $\overrightarrow{P}$ is given by $\overrightarrow{P}=x^3y\overrightarrow{a_x}-x^2y^2\overrightarrow{a_y}-x^2yx\overrightarrow{a_z}$. Which one of the following statements is \textbf{TRUE}?
+ \begin{enumerate}
+     \item $\overrightarrow{P}$ is solenoidal, but not irrotational
+     \item $\overrightarrow{P}$ is irrotational, but not solenoidal
+     \item $\overrightarrow{P}$ is neither solenoidal nor irrotational
+     \item $\overrightarrow{P}$ is both solenoidal and irrotational
+ \end{enumerate}
+ \item Which one of the following graphs describes the function $f\brak{x}=e^{-x}\brak{x^2+x+1}$?
+    \begin{figure}[H]
+    \centering
+    \begin{tabular}{cc}
+        \textbf{a)} \includegraphics[width=3cm, height=2.5cm]{21.jpg} \hspace{3cm} % Image 1 with spacing and label
+        \textbf{b)} \includegraphics[width=3cm, height=2.5cm]{22.jpg}   \\     % Image 2 on a new line and label
+        \\ \textbf{c)} \includegraphics[width=3cm, height=2.5cm]{23.jpg} \hspace{3cm} % Image 3 with spacing and label
+        \textbf{d)} \includegraphics[width=3cm, height=2.5cm]{24.jpg}
+    \end{tabular}
+    \end{figure}
+ \item The maximum area \brak{\text{in square unit}} of a rectangle whose vertices lie on the ellipse $x^2+4y^2=1$ is \underline{\hspace{1cm}}.
+
+ \item The damping ratio of a series $RLC$ circuit can be expressed as\\ \\
+    \begin{enumerate*}
+        \item $\dfrac{R^2C}{2L}$ \hspace{1cm}
+        \item $\dfrac{2L}{R^2C}$ \hspace{1cm}
+        \item $\dfrac{R}{2}\sqrt{\dfrac{C}{L}}$  \hspace{1cm}
+        \item $\dfrac{2}{R}\sqrt{\dfrac{L}{C}}$
+    \end{enumerate*}
+
+ \item In the circuit shown, switch SW is closed at $t = 0$. Assuming zero initial conditions, the value of $v_c\brak{t}$ \brak{\text{in Volts}} at $
+t = 1$ sec is \underline{\hspace{1cm}}.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=8cm,height=3cm]{25.jpg}
+    \end{figure}\\
+ \item In the given circuit, the maximum power \brak{\text{in Watts}} that can be transferred to the load $R_L$ is \brak{C_J}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=6cm,height=4cm]{26.jpg}
+    \end{figure}\\
+ \item The built-in potential of an abrupt p-n junction is $0.75 V$. If its junction capacitance $\brak{C_J}$ at a reverse bias $\brak{V_R}$ of $1.25 V$ is $5 pF$, the value of $C_J$ \brak{\text{in pF}} when $V_R = 7.25 V$ is \underline{\hspace{1cm}}.
+
+ \item A MOSFET in saturation has a drain current of $1 mA$ for $V_DS = 0.5 V$. If the channel length modulation coefficient is $0.05 V^{-1}$, the output resistance \brak{\text{in k$\Omega$}} of the MOSFET is \underline{\hspace{1cm}}.
+
+ \item For a silicon diode with long P and N regions, the accepter and donor impurity concentrations are $1\times 10^17$ $cm^-3$ and $1 \times 10^15$ $cm^-3$, respectively. The lifetimes of electrons in P region and holes in N 
+region are both $100$ $\mu$s. The electron and hole diffusion coefficients are $49$ $cm^2/s$ and $36$ $cm^2/s$, respectively. Assume $kT/q = 26$ $mV$, the intrinsic carrier concentration is $1 \times 10^10$ $cm^-3$, and 
+$q = 1.6 \times 10^-19$ C. When a forward voltage of $208$ $mV$ is applied across the diode, the hole current density \brak{\text{in $nA/cm^2$}} injected from P region to N region is \underline{\hspace{2cm}}.
+
+ \item The Boolean expression $F\brak{X,Y,Z} = \overline{X}Y\overline{Z}+X\overline{Y}\overline{Z}+XY\overline{Z}+XYZ$ converted into the canonical product of sum \brak{POS} form is
+ \begin{enumerate}
+     \item $\brak{X+Y+Z}\brak{X+Y+\overline{Z}}\brak{X+\overline{Y}+\overline{Z}}\brak{\overline{X}+Y+\overline{Z}}$
+     \item $\brak{X+\overline{Y}+Z}\brak{\overline{X}+Y+\overline{Z}}\brak{\overline{X}+\overline{Y}+Z}\brak{\overline{X}+\overline{Y}+\overline{Z}}$
+     \item $\brak{X+Y+Z}\brak{\overline{X}+Y+\overline{Z}}\brak{X+\overline{Y}+Z}\brak{\overline{X}+\overline{Y}+\overline{Z}}$
+     \item $\brak{X+\overline{Y}+\overline{Z}}\brak{\overline{X}+Y+Z}\brak{\overline{X}+\overline{Y}+Z}\brak{X+Y+Z}$
+ \end{enumerate}
+ \item All the logic gates shown in the figure have a propagation delay of $20$ $ns$. Let $A = C = 0$ and $B = 1$ until time $t = 0$. At $t = 0$, all the inputs flip \brak{\text{i.e., $A = C = 1$ and $B = 0$}} and remain in that state. For $t > 0$, output $Z = 1$ for a duration \brak{\text{in $ns$}} of \underline{\hspace{2cm}}.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=7cm,height=2.5cm]{27.jpg}
+    \end{figure}\\
+ \item A 3-input majority gate is defined by the logic function $M\brak{a,b,c} = ab+bc+ca$. Which one of the following gates is represented by the function $M\brak{\overline{M\brak{a,b,c}},M\brak{a,b,\overline{c}},c}$?\\ \\
+    \begin{minipage}[t]{.5\textwidth}
+\begin{itemize}
+\item[(a)] 3-input NAND gate
+\item[(c)] 3-input NOR gate
+\end{itemize}
+\end{minipage}
+\hfill % Add space between minipages
+\begin{minipage}[t]{.5\textwidth}
+\begin{itemize}
+\item[(b)] 3-input XOR gate
+\item[(d)] 3-input XNOR gate
+\end{itemize}
+\end{minipage}
+\newpage 
+\item For the NMOSFET in the circuit shown, the threshold voltage is$V_{th}$, where $V_{th}>0$. The source voltage $V_{SS}$ is varied from $0$
+to $V_{DD}$. Neglecting the channel length modulation, the drain current $I_d$
+as a function of $V_{SS}$ is represented by
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=2.5cm,height=4.5cm]{28.jpg}
+    \end{figure}\\
+    \begin{figure}[H]
+    \centering
+    \begin{tabular}{cc}
+        \textbf{a)} \includegraphics[width=4cm, height=2.5cm]{29.jpg} \hspace{3cm} % Image 1 with spacing and label
+        \textbf{b)} \includegraphics[width=4cm, height=2.5cm]{30.jpg}   \\     % Image 2 on a new line and label
+        \\ \textbf{c)} \includegraphics[width=4cm, height=2.5cm]{31.jpg} \hspace{3cm} % Image 3 with spacing and label
+        \textbf{d)} \includegraphics[width=4cm, height=2.5cm]{32.jpg}
+    \end{tabular}
+    \end{figure}
+    
+ \item In the circuit shown, assume that the opamp is ideal. The bridge output voltage $V_0$ \brak{\text{in $mV$}} for $\delta=0.05$ is \underline{\hspace{1cm}}.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=8cm,height=3cm]{33.jpg}
+    \end{figure}
+ \item The circuit shown in the figure has an ideal opamp. The oscillation frequency and the condition to sustain the oscillations, respectively, are
+   \begin{figure}[H]
+        \centering
+        \includegraphics[width=6cm,height=4cm]{34.jpg}
+    \end{figure}
+    \begin{minipage}[t]{.5\textwidth}
+    \begin{itemize}
+        \item[(a)] $\frac{1}{CR}$ and $R_1=R_2$
+        \item[(c)] $\frac{1}{2CR}$ and $R_1=R_2$
+    \end{itemize}
+    \end{minipage}
+    \hfill % Add space between minipages
+    \begin{minipage}[t]{.5\textwidth}
+    \begin{itemize}
+        \item[(b)] $\frac{1}{CR}$ and $R_1=4R_2$
+        \item[(d)] $\frac{1}{2CR}$ and $R_1=4R_2$
+    \end{itemize}
+    \end{minipage}
+ \item In the circuit shown, $I_1 = 80$mA and $I_2 = 4$mA. Transistors $T_1$ and $T_2$ are identical. Assume that the thermal voltage $V_T$ is $26$mV at $27^\circ C$. At $50^\circ C$, the value of the voltage $V_12$ \brak{\text{in mV}} is \underline{\hspace{2cm}}.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=2.5cm,height=4.5cm]{35.jpg}
+    \end{figure}
+
+ \item Two sequences $\sbrak{a,b,c}$ and $\sbrak{A,B,C}$ are related as\\
+ \[\begin{bmatrix}
+    A\\
+    B\\
+    C
+ \end{bmatrix}=
+ \begin{bmatrix}
+     1 & 1 & 1\\
+     1 & W_3^{-1} & W_3^{-2}\\
+     1 & W_3^{-2} & W_3^{-4}
+ \end{bmatrix}
+ \begin{bmatrix}
+     a\\
+     b\\
+     c
+ \end{bmatrix} \text{where } W_3=e^{j\frac{2\pi}{3}}.\]
+ If another sequence $\sbrak{p,q,r}$ is derived as,
+ \[\begin{bmatrix}
+     p\\q\\r
+ \end{bmatrix} = 
+ \begin{bmatrix}
+     1 & 1 & 1\\
+     1 & W_3^{1} & W_3^{2}\\
+     1 & W_3^{2} & W_3^{4}
+ \end{bmatrix}
+ \begin{bmatrix}
+     1 & 0 & 0 \\ 0 & W_3^2 & 0 \\ 0 & 0 & W_3^4
+ \end{bmatrix}
+ \begin{bmatrix}
+     A/3\\ B/3\\ C/3
+ \end{bmatrix}
+ \] then the reltionship between sequence $\sbrak{p,q,r}$ and $\sbrak{a,b,c}$ is  \\ \\
+ \begin{minipage}[t]{.5\textwidth}
+    \begin{itemize}
+        \item[(a)] $\sbrak{p,q,r}=\sbrak{b,a,c}$
+        \item[(c)] $\sbrak{p,q,r}=\sbrak{c,a,b}$
+    \end{itemize}
+    \end{minipage}
+    \hfill % Add space between minipages
+    \begin{minipage}[t]{.5\textwidth}
+    \begin{itemize}
+        \item[(b)] $\sbrak{p,q,r}=\sbrak{b,c,a}$
+        \item[(d)] $\sbrak{p,q,r}=\sbrak{c,b,a}$
+    \end{itemize}
+    \end{minipage}
+ 
+ \item For the discrete-time system shown in the figure, the poles of the system transfer function are located at  \\ \\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=7cm,height=3.5cm]{36.jpg}
+    \end{figure}
+    \begin{enumerate*}
+        \item $2,3$ \hspace{1cm}
+        \item $\frac{1}{2}, 3$ \hspace{1cm}
+        \item $\frac{1}{2},\frac{1}{3}$ \hspace{1cm}
+        \item $2,\frac{1}{3}$
+    \end{enumerate*}
+ \item The pole-zero diagram of a causal and stable discrete-time system is shown in the figure. The zero at the origin has multiplicity $4$. The impulse response of the system is $h\sbrak{n}$. If $h\sbrak{0}=1$, we can conclude,
+     \begin{figure}[H]
+        \centering
+        \includegraphics[width=5cm,height=5cm]{37.jpg}
+    \end{figure}
+    \begin{enumerate}
+        \item $h\sbrak{n}$ is real for all n
+        \item $h\sbrak{n}$ is purely imaginary for all n
+        \item $h\sbrak{n}$ is real for only even 
+        \item $h\sbrak{n}$ is purely imaginary for only odd 
+    \end{enumerate}
+
+ \item The open-loop transfer function of a plant in a unity feedback configuration is given as $G\brak{s}=\dfrac{K\brak{s+4}}{\brak{s+8}\brak{s^2-9}}$. The value of the gain $K\brak{>0}$ for which $-1+j2$ lies on the root locus is \underline{\hspace{1cm}}.
+
+ \item A lead compensator network includes a parallel combination of R and C in the feed-forward path. If the transfer function of the compensator is  $G_c\brak{s}=\dfrac{s+2}{s+4}$, the value of RC is \underline{\hspace{1cm}}.
+
+ \item A plant transfer function is given as $G_c\brak{s}=\brak{K_P+\dfrac{K_I}{s}}\dfrac{1}{s\brak{s+2}}$. When the plant operates in a unity feedback configuration, the condition for the stability of the closed loop system is\\ \\
+\begin{enumerate*}
+    \item $K_p>\dfrac{K_I}{2}>0$
+    \item $2K_I>K_p>0$
+    \item $2K_I<K_p$
+    \item $2K_I>K_p$
+\end{enumerate*}
+ \item The input $X$ to the Binary Symmetric Channel\brak{BSC} shown in the figure is $‘1’$ with probability $0.8$. The cross-over probability is $1/7$. If the received bit $Y = 0$, the conditional probability that $‘1’$ was 
+transmitted is \underline{\hspace{1cm}}.
+     \begin{figure}[H]
+        \centering
+        \includegraphics[width=6cm,height=3.3cm]{38.jpg}
+    \end{figure}
+
+ \item The transmitted signal in a GSM system is of $200$ kHz bandwidth and 8 users share a common bandwidth using TDMA. If at a given time 12 users are talking in a cell, the total bandwidth of the signal received by the base station of the cell will be at least \brak{in kHz} \underline{\hspace{2cm}}.
+ \item In the system shown in Figure\brak{a},$m\brak{t}$ is a low-pass signal with bandwidth $W$ Hz. The frequency response of the band-pass filter $H\brak{f}$ is shown in Figure\brak{b}. If it is desired that the output signal $z\brak{t}=10x\brak{t}$,  the maximum value of $W$ \brak{Hz}
+should be strictly less than \underline{\hspace{1cm}}.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=13cm,height=2.5cm]{39.jpg}
+        \caption{\brak{a}}
+    \end{figure}
+    \vspace{0pt}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=8cm,height=3cm]{40.jpg}
+        \caption{\brak{b}}
+    \end{figure}
+ \item A source emits bit $0$ with probability $\dfrac{1}{3}$ and bit 1 with probability $\dfrac{2}{3}$.The emitted bits are communicated to the receiver. The receiver decides for either 0 or 1 based on the received value 
+$R$. It is given that the conditional density functions of $R$ are as 
+  \[f_{R|0}\brak{r}=     \begin{cases}
+       \dfrac{1}{4}, & -3\leq r\leq 1 \\
+       0 & \text{otherwise.} 
+     \end{cases} \quad \text{and} \quad f_{R|1}\brak{r} = \begin{cases}
+       \dfrac{1}{6}, & -1\leq r\leq 5 \\
+       0 & \text{otherwise.} 
+     \end{cases}\] 
+     The minimum decision error probability is
+ \\ \\ \begin{enumerate*}
+        \item $0$ \hspace{2cm}
+        \item $1/12$ \hspace{2cm}
+        \item $1/9$ \hspace{2cm}
+        \item $1/6$
+    \end{enumerate*}
+ \item The longitudinal component of the magnetic field inside an air-filled rectangular waveguide made of a perfect electric conductor is given by the following expression
+\[H_z\brak{x,y,z,t}=0.1cos\brak{25\pi x}cos\brak{30.3\pi y}cos\brak{12y\times 10^9t-\beta z}\brak{A/m}\]
+The cross-sectional dimensions of the waveguide are given as $a=0.08m$ and $b=0.033m$. The mode of propagation inside the waveguide is
+\begin{minipage}[t]{.5\textwidth}
+\begin{itemize}
+        \item[(a)] $TM_{12}$
+        \item[(c)] $TE_{21}$
+    \end{itemize}
+    \end{minipage}
+    \hfill % Add space between minipages
+    \begin{minipage}[t]{.5\textwidth}
+    \begin{itemize}
+        \item[(b)] $TM_{21}$
+        \item[(d)] $TE_{12}$
+    \end{itemize}
+    \end{minipage}
+ \item The electric field intensity of a plane wave traveling in free space is given by the following expression
+    \[\textbf{E}\brak{x,t}=\textbf{a}_y 24\pi cos\brak{\omega t-k_0x}\brak{V/m}\] In this field, consider a square area $10\text{cm}\times 10\text{cm}$ on a plane $x+y=1$. The total time-averaged power \brak{\text{in mW}} passing through the square area is \underline{\hspace{1cm}}.
+ \item Consider a uniform plane wave with amplitude $\brak{E_0}$ of 10V/m and 1.1 GHz  frequency travelling in air, and incident normally on a dielectric medium with complex relative permittivity $\brak{\varepsilon_r}$ and permeability $\brak{\mu_r}$ as shown in the figure.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=6cm,height=5cm]{41.jpg}
+    \end{figure} The magnitude of the transmitted electric field component \brak{in V/m} after it has travelled a distance 
+of $10$ cm inside the dielectric region is \underline{\hspace{2cm}}.
+    
+\end{enumerate}
+\end{document}
+\end{document}
